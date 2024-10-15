@@ -175,7 +175,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #intro .scroll {
-  text-align: left;
+  text-align: justify;
   display: block;
   color: #6e6e6e;
   padding: 20px 0px;
@@ -460,12 +460,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #contact #contact-form {
-  text-align: right;
+  text-align: justify;
   padding: 50px 0px;
 }
 
 #contact #contact-form .form-group {
-  text-align: left;
+  text-align: justify;
   margin-top: 20px;
 }
 
@@ -516,7 +516,7 @@ footer {
   background-color: #222222;
   padding-bottom: 30px;
   padding-top: 10px;
-  text-align: center;
+  text-align: justify;
   font-size: 0.9em;
 }
 
@@ -618,7 +618,7 @@ footer .copyright p a:hover {
   }
   #experience .jobs .first, #experience .jobs .third {
     margin-left: 2px;
-    text-align: right;
+    text-align: justify;
     padding-left: 0;
     border-left: 0px;
     border-right: 2px solid #68d372;
@@ -645,7 +645,7 @@ footer .copyright p a:hover {
     padding-right: 80px;
   }
   #contact .contacts {
-    text-align: left;
+    text-align: justify;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -750,7 +750,7 @@ footer .copyright p a:hover {
     margin-top: 125px;
   }
   #contact .contacts {
-    text-align: left;
+    text-align: justify;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
