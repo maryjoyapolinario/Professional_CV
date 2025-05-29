@@ -1,3 +1,24 @@
+/* CSS Custom Properties (Variables) */
+:root {
+  --primary-color: #3498db;         /* Blue */
+  --primary-color-darker: #2980b9; /* Darker Blue for hovers */
+  
+  --background-dark: #1f2833;       /* Very Dark Desaturated Blue/Almost Black */
+  --background-light: #ffffff;      /* White */
+  
+  --text-dark: #2c3e50;             /* Dark Grey/Blue for text on light backgrounds */
+  --text-light: #ecf0f1;            /* Light Grey/Off-White for text on dark backgrounds */
+  --text-muted: #7f8c8d;            /* Muted Grey */
+
+  --border-color: var(--primary-color); /* Blue for borders, including timeline */
+  
+  --timeline-line-width: 2px;
+  --timeline-dot-size: 15px;
+  --timeline-content-padding: 40px; /* Space between timeline line and content */
+  --timeline-margin-bottom: 30px; /* Space between timeline items */
+}
+
+
 *,
 *::after,
 *::before {
@@ -8,12 +29,13 @@
 }
 
 html {
-  scroll-padding-top: 80px;
+  scroll-padding-top: 80px; /* Adjust if navbar height changes */
 }
 
 body {
   font-family: 'Overpass', sans-serif;
-  color: #efeaee;
+  color: var(--text-dark); /* Default text color for light backgrounds */
+  background-color: var(--background-light);
 }
 
 .fb2022-copy {
@@ -22,119 +44,176 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--primary-color);
 }
 
 a:hover {
-  color: #30429b;
+  color: var(--primary-color-darker);
 }
 
 input, textarea {
   border-radius: 0px;
-  color: #6d0101 !important;
-  text-align: justify;
+  /* Color will depend on background - handled in specific sections */
+  text-align: justify; /* This is unusual for inputs, consider removing if not intended */
+  border: 1px solid var(--text-muted);
 }
 
 input:focus, textarea:focus {
   outline: 0px !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
+  border-color: var(--primary-color) !important;
 }
 
-.btn-success {
-  background-color: #68d372;
-  border-color: #68d372;
-  border-radius: 0px;
+/* Buttons */
+.btn { /* General button reset if needed, Bootstrap handles most */
+  border-radius: 0px; 
+}
+.btn-success { /* This class name is from Bootstrap, now themed blue */
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--background-light);
   font-weight: 600;
 }
-
 .btn-success:hover {
-  background-color: #4ea156;
+  background-color: var(--primary-color-darker);
+  border-color: var(--primary-color-darker);
+  color: var(--background-light);
 }
 
-.btn-outline-success {
-  border-radius: 0px;
-  color: white;
+.btn-outline-success { /* This class name is from Bootstrap, now themed blue */
+  color: var(--primary-color); /* Text color for outline button on light bg */
+  border-color: var(--primary-color);
   font-weight: 600;
 }
-
-.btn-outline-success img {
-  width: 10px;
+#intro .btn-outline-success { /* Specific for intro on dark bg */
+    color: var(--text-light);
+    border-color: var(--primary-color);
 }
-
+#intro .btn-outline-success:hover {
+    background-color: var(--primary-color);
+    color: var(--background-light);
+}
 .btn-outline-success:hover {
-  background-color: #0af739;
+  background-color: var(--primary-color);
+  color: var(--background-light);
+}
+/* Contact form Send button */
+#contact .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--background-light);
+}
+#contact .btn-primary:hover {
+    background-color: var(--primary-color-darker);
+    border-color: var(--primary-color-darker);
 }
 
+
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-  color: #222222;
-  font-weight: 50;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+#intro h1, #intro h3,
+#skills h2.section-title,
+#contact h2.section-title, #contact h5,
+footer p /* Forcing footer text to be light */
+ {
+  color: var(--text-light); /* Headings on dark backgrounds */
+}
+#intro h3 {
+  font-size: 34px;
+  font-weight: bold;
+  margin: 20px 0;
+  line-height: 1.5;
+  text-align: left;
 }
 
-h3 {
-  font-size: 34px; /* Adjust the size as needed */
-  font-weight: bold; /* Choose 'normal' for regular weight */
-  color: #e6f5f7; /* Change to your preferred color */
-  margin: 20px 0; /* Adjust top and bottom margins */
-  line-height: 1.5; /* Adjust line height for readability */
-  text-align: left; /* Change to center or right if needed */
+
+.green { /* Renaming this class in HTML to .text-primary or similar would be better semantically */
+  color: var(--primary-color) !important; /* Force blue for this class */
+}
+span.green { /* Ensure spans with this class also get the color */
+    color: var(--primary-color) !important;
 }
 
-.green {
-  color: #68d372;
-}photo-bio
-
-
-
-.white {
-  color: white;
+.white { /* This class can be .text-light if consistently used for light text */
+  color: var(--text-light);
 }
+
+/* Paragraphs that need to be dark on light backgrounds (default is already --text-dark) */
+#about .right p,
+#bio .text p,
+#experience .jobs .job-item p {
+  color: var(--text-dark);
+  text-align: justify;
+}
+/* Paragraphs that need to be light on dark backgrounds */
+#intro p, 
+#contact .contact-info p,
+#contact .social-media p {
+  color: var(--text-light);
+  text-align: justify; /* For intro p */
+}
+#contact .contact-info p, #contact .social-media p {
+    text-align: center; /* Center align contact info text */
+}
+#contact .contact-info p.white { /* Used for email/phone */
+    font-weight: bold;
+    color: var(--text-light);
+}
+
 
 .navbar {
   position: fixed;
   z-index: 20;
-  margin: 0 auto;
+  width: 100%;
   padding: 30px 0;
-  background-color: #222222;
+  background-color: var(--background-dark);
 }
 
 .navbar .navbar-brand {
   position: absolute;
   top: 0;
-  background-color: #68d372;
+  background-color: var(--primary-color);
   display: inline-block;
   padding: 20px 10px 0px 10px;
   font-size: 2em;
-  color: white;
+  color: var(--background-light);
   font-weight: 900;
 }
 
 .navbar li .nav-link {
   position: relative;
   display: inline-block;
-  color: white;
+  color: var(--text-light);
   padding: 15px 30px !important;
   margin-right: 20px;
 }
 
 .navbar li .nav-link:hover {
-  color: #68d372;
+  color: var(--primary-color);
 }
 
 .navbar li .active {
-  color: #68d372;
+  color: var(--primary-color);
 }
 
-.navbar .btn {
-  color: white;
+.navbar .btn { /* Download CV button in navbar */
+  color: var(--background-light);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
   width: 150px;
 }
-
 .navbar .btn:hover {
-  color: white;
+  color: var(--background-light);
+  background-color: var(--primary-color-darker);
+  border-color: var(--primary-color-darker);
 }
 
 .navbar .navbar-toggler {
-  color: white !important;
+  color: var(--text-light) !important;
   margin-left: auto;
 }
 
@@ -145,23 +224,31 @@ h3 {
   outline: none;
 }
 
-.section-title {
-  color: #68d372;
+.section-title { /* For h2 used as section titles */
+  color: var(--primary-color); /* Blue title on light backgrounds */
   font-weight: bold;
   text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+}
+#skills .section-title, #contact .section-title {
+    color: var(--text-light); /* Light title on dark backgrounds */
 }
 
+
 #intro {
-  background-color: #222222;
+  background-color: var(--background-dark);
   padding: 150px 0px 50px;
+  overflow-x: hidden;
 }
 
 #intro h1 {
-  color: white;
+  font-size: 3rem;
 }
-
-#intro h1 span {
-  font-size: 1.8em;
+@media (min-width: 1200px) {
+  #intro h1 {
+    font-size: 4.4rem;
+  }
 }
 
 #intro .btn {
@@ -170,7 +257,6 @@ h3 {
 
 #intro p {
   margin: 30px 0px;
-  text-align: justify;
 }
 
 #intro a {
@@ -184,112 +270,136 @@ h3 {
   margin-right: 10px;
 }
 
-#intro a:hover {
-  color: white;
+#intro a:hover span { /* For "Contact me" text on intro button */
+  color: var(--background-light);
 }
 
 #intro .scroll {
-  text-align: justify;
+  text-align: left;
   display: block;
-  color: #6e6e6e;
+  color: var(--text-muted);
   padding: 20px 0px;
   margin-top: 30px;
 }
+#intro .scroll:hover {
+    color: var(--text-light);
+}
+
 
 #intro .img {
   display: flex;
-  justify-content: center; /* Centers the image horizontally */
-  margin-bottom: 110px;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 50px;
 }
 
 #intro .img img {
   width: 90%;
-  max-width: 100%; /* Ensures it doesn't overflow */
-  height: auto; /* Maintains aspect ratio */
-  margin-bottom: 110px;
+  max-width: 450px;
+  height: auto;
 }
 
 #about {
   padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: var(--background-light);
 }
 
 #about .section-title {
-  padding-left: 40px;
+  padding-left: 0;
+}
+#about .left h2 { /* The "5-year..." and "2100+..." */
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    color: var(--text-dark);
+}
+#about .left h2 .green { /* The number/text part */
+    color: var(--primary-color) !important;
 }
 
+
 #about .left, #about .right {
-  padding: 40px 40px;
+  padding: 20px;
 }
 
 #about .left div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 40px;
-  padding-bottom: 30px;
+  gap: 20px;
+  padding-bottom: 20px;
+  align-items: center;
 }
 
 #about .left img {
   width: 30px;
+  height: 30px;
 }
 
+#bio {
+  background-color: var(--background-light);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
 #bio .bio {
   padding: 0px;
-  margin-top: -50px;
+}
+#bio h2 { /* Personal background title */
+    margin-bottom: 20px;
+}
+#bio h2 .green { /* "Personal background:" span */
+    color: var(--primary-color) !important;
 }
 
+
 #bio .img {
-  padding: 50px;
+  padding: 20px;
 }
 
 #bio .img img {
   width: 100%;
+  border-radius: 8px;
 }
 
 #bio .text {
-  padding: 40px;
-  text-align: justify;
+  padding: 20px;
 }
 
 #skills {
-  background-color: #222222;
+  background-color: var(--background-dark);
   padding: 80px 0px;
-}
-
-#skills h1 {
-  color: white;
 }
 
 #skills .skills-progress {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 50px;
+  gap: 30px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 70px 0px;
+  padding: 50px 0px;
 }
 
 #skills .skills-progress .skill-wrapper {
   height: 180px;
   width: 180px;
-  float: left;
   margin: 15px;
   position: relative;
 }
 
 #skills .skills-progress .skill-wrapper .skill-name {
-  color: white;
+  color: var(--text-light);
   position: absolute;
   font-size: 0.9rem;
   width: 100%;
-  bottom: -60px;
+  bottom: -40px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  text-align: center;
 }
 
 #skills .skills-progress .skill-wrapper .progress {
@@ -305,7 +415,7 @@ h3 {
 #skills .skills-progress .skill-wrapper .progress .half-circle {
   height: 100%;
   width: 100%;
-  border: 10px solid #68d372;
+  border: 10px solid var(--primary-color); /* Blue progress */
   border-radius: 50%;
   clip: rect(0, 90px, 180px, 0);
   left: 0;
@@ -317,7 +427,7 @@ h3 {
 #skills .skills-progress .skill-wrapper .shadow {
   height: 175px;
   width: 175px;
-  border: 5px solid #6e6e6e;
+  border: 5px solid var(--text-muted); /* Grey shadow */
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -327,7 +437,7 @@ h3 {
 }
 
 #skills .skills-progress .skill-wrapper .label {
-  color: white;
+  color: var(--text-light);
   font-size: 2.1rem;
   font-weight: 900;
   position: absolute;
@@ -336,181 +446,154 @@ h3 {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
-
-#skills .skills-progress .skill-wrapper .label .smaller {
-  font-weight: 600;
-  font-size: 2rem;
+/* Default state: both sides hidden */
+.skill-wrapper .right-side,
+.skill-wrapper .left-side {
+  transform: rotate(0deg);
 }
 
-#skills .skills-progress .skill-wrapper.progress-95 .progress {
-  clip: rect(auto, auto, auto, auto);
-}
+/* For 0–50% progress: only right-side rotates */
+.skill-wrapper.progress-10 .right-side { transform: rotate(36deg); }
+.skill-wrapper.progress-20 .right-side { transform: rotate(72deg); }
+.skill-wrapper.progress-30 .right-side { transform: rotate(108deg); }
+.skill-wrapper.progress-40 .right-side { transform: rotate(144deg); }
+.skill-wrapper.progress-50 .right-side { transform: rotate(100deg); }
 
-#skills .skills-progress .skill-wrapper.progress-95 .progress .right-side {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
+/* For >50% progress: right-side fixed, left-side rotates the rest */
+.skill-wrapper.progress-60 .right-side { transform: rotate(100deg); }
+.skill-wrapper.progress-60 .left-side  { transform: rotate(36deg); }
 
-#skills .skills-progress .skill-wrapper.progress-95 .progress .left-side {
-  -webkit-transform: rotate(330deg);
-          transform: rotate(330deg);
-}
+.skill-wrapper.progress-70 .right-side { transform: rotate(100deg); }
+.skill-wrapper.progress-70 .left-side  { transform: rotate(72deg); }
 
-#skills .skills-progress .skill-wrapper.progress-98 .progress {
-  clip: rect(auto, auto, auto, auto);
-}
+.skill-wrapper.progress-72 .right-side { transform: rotate(100deg); }
+.skill-wrapper.progress-72 .left-side  { transform: rotate(79.2deg); }
 
-#skills .skills-progress .skill-wrapper.progress-98 .progress .right-side {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
+.skill-wrapper.progress-90 .right-side { transform: rotate(100deg); }
+.skill-wrapper.progress-90 .left-side  { transform: rotate(144deg); }
 
-#skills .skills-progress .skill-wrapper.progress-98 .progress .left-side {
-  -webkit-transform: rotate(350deg);
-          transform: rotate(350deg);
-}
+.skill-wrapper.progress-95 .right-side { transform: rotate(100deg); }
+.skill-wrapper.progress-95 .left-side  { transform: rotate(162deg); }
 
-#skills .skills-progress .skill-wrapper.progress-90 .progress {
-  clip: rect(auto, auto, auto, auto);
-}
-
-#skills .skills-progress .skill-wrapper.progress-90 .progress .right-side {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-#skills .skills-progress .skill-wrapper.progress-90 .progress .left-side {
-  -webkit-transform: rotate(320deg);
-          transform: rotate(320deg);
-}
+.skill-wrapper.progress-98 .right-side { transform: rotate(100deg); }
+skill-wrapper.progress-98 .left-side  { transform: rotate(100deg); }
 
 
+/* === EXPERIENCE TIMELINE === */
 #experience {
-  padding: 50px 0px;
+  padding: 80px 0px;
+  background-color: var(--background-light);
 }
+#experience h2 { /* Career Timeline Title */
+    margin-bottom: 40px;
+    color: var(--text-dark); /* Title on light background */
+}
+#experience h2 .green { /* If there's a span inside */
+    color: var(--primary-color) !important;
+}
+
 
 #experience .jobs {
-  text-align: left;
   margin-top: 40px;
-}
-
-#experience .jobs p {
-  margin-bottom: 0;
+  position: relative; /* Needed for absolute positioning of timeline elements if jobs div itself had a line */
 }
 
 #experience .jobs .job-item {
-  border-left: 2px solid #68d372;
-  padding: 0px 40px 0px;
-  padding-bottom: 20px;
   position: relative;
+  padding-left: var(--timeline-content-padding); 
+  margin-bottom: var(--timeline-margin-bottom);
+  border-left: var(--timeline-line-width) solid var(--border-color);
 }
 
-#experience .jobs .job-item .date, #experience .jobs .job-item .company {
-  color: black;
-  font-weight: 600;
+#experience .jobs .job-item:last-child {
+  margin-bottom: 0;
+  /* The border-left will naturally stop with the item's content */
+}
+
+/* Connector line in the margin-bottom space */
+#experience .jobs .job-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Start at the bottom of the job-item's border box */
+  /* Align with the center of the job-item's border-left */
+  left: calc(-1 * var(--timeline-line-width) / 2); 
+  width: var(--timeline-line-width);
+  height: var(--timeline-margin-bottom); /* Span the margin */
+  background-color: var(--border-color);
 }
 
 #experience .jobs .job-item .date {
-  padding-bottom: 20px;
+  position: relative; /* For the dot's absolute positioning */
+  padding-bottom: 10px;
+  color: var(--text-dark);
+  font-weight: 600;
 }
 
-#experience .jobs .job-item .date::before {
+#experience .jobs .job-item .date::after { /* The dot */
   content: '';
-  width: 30px;
-  height: 2px;
-  background-color: #68d372;
-  display: block;
   position: absolute;
-  left: 0px;
-  top: 0.6rem;
-}
-
-#experience .jobs .job-item .date::after {
-  content: '';
-  width: 15px;
-  height: 15px;
-  background-color: white;
-  border: 2px solid #68d372;
+  top: 0.6rem; /* Align with date text roughly */
+  /* Calculate left position to center the dot on the border-left of job-item */
+  left: calc(-1 * var(--timeline-content-padding) - (var(--timeline-dot-size) / 2) );
+  width: var(--timeline-dot-size);
+  height: var(--timeline-dot-size);
+  background-color: var(--background-light); /* Dot background */
+  border: var(--timeline-line-width) solid var(--border-color); /* Dot border */
   border-radius: 50%;
-  display: block;
-  position: absolute;
-  left: 0px;
-  top: 0rem;
-  -webkit-transform: translate(-50%, 25%);
-          transform: translate(-50%, 25%);
+  transform: translateY(-50%); /* Vertically center the dot */
+  z-index: 1; /* Ensure dot is above lines */
 }
 
 #experience .jobs .job-item .position {
   font-weight: 600;
-  color: #68d372;
+  color: var(--primary-color); /* Position text in blue */
   font-size: 1.3rem;
+  margin-bottom: 5px;
 }
 
 #experience .jobs .job-item .company {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  color: var(--text-dark);
+  font-weight: 600;
 }
+/* End Mobile Timeline Styles */
 
-#experience .jobs .first {
-  padding-top: 60px;
-}
-
-#experience .jobs .first .date::before {
-  top: 70px;
-}
-
-#experience .jobs .first .date::after {
-  top: 60px;
-}
-
-#experience .jobs .fourth {
-  padding-bottom: 600px;
-}
 
 #contact {
-  background-color: #222222;
-  padding: 50px 0px;
+  background-color: var(--background-dark);
+  padding: 80px 0px;
 }
 
-#contact #contact-form {
-  text-align: justify;
-  padding: 50px 0px;
+#contact label { /* Labels in contact form */
+    color: var(--text-light);
+}
+#contact form input, #contact form textarea { /* Inputs in contact form */
+  background-color: rgba(255, 255, 255, 0.05); /* Very subtle white for inputs on dark */
+  border-color: rgba(255,255,255,0.2); /* Lighter border for inputs */
+  color: var(--text-light) !important;
+}
+#contact form input::placeholder, #contact form textarea::placeholder {
+    color: rgba(236, 240, 241, 0.6); /* Lighter placeholder text */
+}
+#contact form input:focus, #contact form textarea:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-color) !important;
 }
 
-#contact #contact-form .form-group {
-  text-align: justify;
-  margin-top: 20px;
-}
-
-#contact #contact-form button {
-  margin-top: 40px;
-}
-
-#contact #contact-form input, #contact #contact-form textarea {
-  background-color: transparent;
-  border-radius: 0px;
-  border: 0px;
-  border-bottom: 1px solid #6e6e6e;
-}
-
-#contact .img {
-  margin-top: 30px;
-}
 
 #contact .img img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-#contact h1 {
-  color: white;
-  font-weight: 900;
+#contact .contact-info h5 {
+    margin-bottom: 20px;
 }
 
 #contact .email, #contact .phone {
   margin-top: 20px;
-}
-
-#contact .email p, #contact .phone p {
-  margin-bottom: 0.5rem !important;
 }
 
 #contact .social-media img {
@@ -518,158 +601,147 @@ h3 {
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
-
-#contact .social-media a img:hover {
+#contact .social-media a:hover img {
   -webkit-transform: scale(1.3);
           transform: scale(1.3);
+  filter: brightness(1.2); /* Example hover effect for icons */
 }
 
+
 footer {
-  background-color: #222222;
+  background-color: var(--background-dark);
   padding-bottom: 30px;
-  padding-top: 10px;
-  text-align: justify;
+  padding-top: 30px;
+  text-align: center;
   font-size: 0.9em;
+  color: var(--text-muted); /* Muted text for footer */
 }
 
 footer .copyright p a {
-  color: rgba(255, 255, 255, 0.63);
+  color: var(--text-light);
 }
-
 footer .copyright p a:hover {
-  color: #68d372;
+  color: var(--primary-color);
 }
 
+/* === MEDIA QUERIES === */
 @media (min-width: 768px) {
-  h1 {
+  h2.section-title {
     font-size: 3rem;
-  }
-  .section-title {
-    font-size: 3.5rem;
     position: relative;
     padding-top: 20px;
-    text
   }
-  
+
   #intro .container {
     padding: 0px 40px;
   }
+
   #about .section-title::before {
-    width: 50px;
-    height: 2px;
-    top: 35px;
-    left: -40px;
+    content: ''; display: block;
+    width: 50px; height: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
   }
+
   .about-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 80px;
-    
+    gap: 40px;
   }
   .about-wrapper .left {
-    width: 30%;
+    width: 40%;
   }
   .about-wrapper .right {
-    width: 70%;
+    width: 60%;
     position: relative;
   }
   .about-wrapper .right::before {
     content: '';
     width: 2px;
-    height: 100px;
+    height: 80px;
     display: block;
-    background-color: #ffffff;
+    background-color: var(--primary-color);
     position: absolute;
-    top: 150px;
-    left: 0;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    top: 20px;
+    left: -20px;
   }
   .about-wrapper .left img {
     width: 40px !important;
+    height: 40px !important;
   }
-  #bio .section-title::before {
-    width: 200px;
-    height: 2px;
-    left: -230px;
-    top: 75%;
-  }
+
   #bio .text {
-    padding-left: 50px;
+    padding-left: 30px;
   }
   #bio .img {
-    margin-top: 30px;
     z-index: 5 !important;
   }
-  #experience {
-    padding-bottom: 0px;
-    margin-bottom: -50px;
-  }
+
+
+  /* === DESKTOP ALTERNATING TIMELINE === */
   #experience .jobs .job-item {
     width: 50%;
-    padding: 0px 70px;
+    /* Reset mobile specific border and padding */
+    border-left: none; 
+    padding-left: 0; 
+    padding-right: 0; /* Base reset for padding */
   }
-  #experience .jobs .job-item .date::before {
-    width: 50px;
+
+  /* EVEN items: Content on the RIGHT of the timeline */
+  #experience .jobs .job-item:nth-child(even) {
+    margin-left: 50%; /* Push item to the right half */
+    padding-left: var(--timeline-content-padding); /* Space for content */
+    border-left: var(--timeline-line-width) solid var(--border-color); /* Line on the left */
+    text-align: left;
   }
-  #experience .jobs .second, #experience .jobs .fourth {
-    margin-left: auto;
+  #experience .jobs .job-item:nth-child(even):not(:last-child)::after { /* Connector */
+    left: calc(-1 * var(--timeline-line-width) / 2); 
+    right: auto;
   }
-  #experience .jobs .first {
-    padding-top: 60px;
+  #experience .jobs .job-item:nth-child(even) .date::after { /* Dot */
+    left: calc(-1 * var(--timeline-content-padding) - (var(--timeline-dot-size) / 2));
+    right: auto;
   }
-  #experience .jobs .first, #experience .jobs .third {
-    margin-left: 2px;
-    text-align: justify;
-    padding-left: 0;
-    border-left: 0px;
-    border-right: 2px solid #68d372;
+
+  /* ODD items: Content on the LEFT of the timeline */
+  #experience .jobs .job-item:nth-child(odd) {
+    margin-left: 0; /* Keep item on the left half */
+    padding-right: var(--timeline-content-padding); /* Space for content */
+    border-right: var(--timeline-line-width) solid var(--border-color); /* Line on the right */
+    text-align: right; /* Align date, position, company to the right */
   }
-  #experience .jobs .first .date::before, #experience .jobs .third .date::before {
-    left: 100%;
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+   #experience .jobs .job-item:nth-child(odd) p { /* Details paragraph */
+      text-align: justify; /* Justify the longer description */
   }
-  #experience .jobs .first .date::after, #experience .jobs .third .date::after {
-    left: 100%;
+  #experience .jobs .job-item:nth-child(odd):not(:last-child)::after { /* Connector */
+    right: calc(-1 * var(--timeline-line-width) / 2);
+    left: auto;
   }
-  #experience .jobs .fourth {
-    padding-bottom: 150px;
+  #experience .jobs .job-item:nth-child(odd) .date::after { /* Dot */
+    right: calc(-1 * var(--timeline-content-padding) - (var(--timeline-dot-size) / 2));
+    left: auto;
   }
+  /* End Desktop Alternating Timeline */
+
+
   #contact {
-    margin-top: 0px;
     padding-top: 80px;
   }
   #contact .row {
     position: relative;
   }
-  #contact .form {
-    padding-right: 80px;
-  }
-  #contact .contacts {
-    text-align: justify;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-  #contact .contacts div {
-    margin-top: 0;
-  }
-  #contact .contacts .social-media p {
-    margin-bottom: 0.5rem;
-  }
-  #contact .contacts .social-media img {
-    width: 20px;
-  }
 }
 
 @media (min-width: 992px) {
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
+  }
+  h2.section-title {
+    font-size: 3.2rem;
   }
   #intro {
     padding-bottom: 0;
@@ -679,27 +751,31 @@ footer .copyright p a:hover {
     display: -ms-flexbox;
     display: flex;
     gap: 30px;
+    align-items: center;
   }
   #intro .text {
-    width: 100%;
+    width: 55%;
   }
   #intro .img {
-    margin-bottom: -50px;
-    margin-right: -250px;
-    width: 70%;
+    width: 45%;
+    margin-bottom: 0;
+    margin-right: 0;
+    justify-content: flex-end;
   }
-  #intro h1 {
-    position: relative;
+  #intro .img img {
+      max-width: 100%;
   }
+
   #intro h1::before {
     content: '';
-    width: 122px;
+    width: 100px;
     height: 2px;
     display: block;
-    background-color: #68d372;
+    background-color: var(--primary-color);
     position: absolute;
-    top: 115px;
-    left: -140px;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
   }
   #bio {
     padding-bottom: 0;
@@ -708,93 +784,62 @@ footer .copyright p a:hover {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    align-items: center;
   }
   .bio .img {
-    width: 50%;
-    margin-bottom: -50px;
+    width: 40%;
   }
   .bio .text {
     z-index: 5;
-    width: 50%;
+    width: 60%;
   }
   .bio .text .section-title {
     margin-bottom: 30px;
-  }
-  #skills .section-title::before {
-    height: 150px;
-  }
-  footer {
     text-align: left;
+  }
+  .bio .text .section-title::before { display: none; }
+
+  footer {
+    text-align: center;
     font-size: 1rem;
   }
 }
 
 @media (min-width: 1200px) {
   h1 {
-    font-size: 4.4rem;
+    font-size: 4rem;
+  }
+  h2.section-title {
+    font-size: 3.5rem;
   }
   .about-wrapper .left {
-    width: 50%;
+    width: 45%;
   }
-  .about-wrapper .left h2 {
-    font-size: 3rem;
+   .about-wrapper .left h2 {
+    font-size: 2rem;
   }
   .about-wrapper .right {
-    width: 48%;
-    padding-left: 0 !important;
+    width: 55%;
+    padding-left: 20px !important;
   }
   .about-wrapper .right::before {
-    left: -90px;
+    left: -30px;
   }
   #contact {
-    padding-bottom: 0px;
+    padding-bottom: 80px;
     padding-top: 100px;
   }
-  #contact .img {
-    margin-top: 30px;
-  }
-  #contact .contacts {
-    text-align: justify;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    padding-right: 80px;
-    position: absolute;
-    bottom: 10px;
-  }
 }
-/*# sourceMappingURL=main.css.map */
 
-.blue {
-  color: #68d372;
-}photo-bio
-
-.justified {
+.justified { /* Utility class if needed elsewhere */
   text-align: justify;
-}
-
-.textonwhite {
-  color:#222222;
-  text-align: justify !important;
-}
-#contact .container {
-  max-width: 100%;
-}
-
-#contact .section-title {
-  margin-bottom: 30px;
-  font-weight: bold;
 }
 
 #contact form {
   padding: 20px;
-}
-
-#contact .img img {
-  max-width: 100%;
-  height: auto;
+  background-color: rgba(0,0,0,0.1); /* Subtle background for the form area on dark bg */
   border-radius: 8px;
 }
+
+/*# sourceMappingURL=main.css.map */
+
