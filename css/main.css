@@ -412,7 +412,7 @@ span.green { /* Ensure spans with this class also get the color */
   background-color: transparent;
 }
 
-#skills .skills-progress .skill-wrapper .progress .half-circle {
+#skills .skills-progress .skill-wrapper .progress .circle {
   height: 100%;
   width: 100%;
   border: 10px solid var(--primary-color); /* Blue progress */
@@ -498,12 +498,6 @@ skill-wrapper.progress-98 .left-side  { transform: rotate(100deg); }
   position: relative; /* Needed for absolute positioning of timeline elements if jobs div itself had a line */
 }
 
-#experience .jobs .job-item {
-  position: relative;
-  padding-left: var(--timeline-content-padding); 
-  margin-bottom: var(--timeline-margin-bottom);
-  border-left: var(--timeline-line-width) solid var(--border-color);
-}
 
 #experience .jobs .job-item:last-child {
   margin-bottom: 0;
