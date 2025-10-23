@@ -858,3 +858,21 @@ footer .copyright p a:hover {
   color: var(--text-light);
   font-size: 1rem;
 }
+/* Reduce the large gap between About Me and Personal Background */
+#about {
+  margin-bottom: 20px !important;   /* smaller space below About */
+  padding-bottom: 10px !important;
+}
+
+#bio {
+  margin-top: 0 !important;         /* remove unnecessary top margin */
+  padding-top: 0 !important;
+}
+#bio::before {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 0 auto 30px;
+}

@@ -1,217 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Mary Joy Apolinario-Frazão-Professional CV</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/0e035b9984.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.typekit.net/rrg4put.css">
-    <link rel="stylesheet" href="css/main.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mary Joy Apolinario-Frazão | Document Controller</title>
+<meta name="description" content="Professional CV website of Mary Joy Apolinario-Frazão — Document Controller with expertise in documentation management, permitting, and process coordination." />
+<meta name="keywords" content="Document Controller, Administrative Assistant, Coordinator, Project Management, Remote Work, Documentation, Compliance, Mary Joy Apolinario-Frazão, CV" />
+<meta name="author" content="Mary Joy Apolinario-Frazão" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700&display=swap" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/0e035b9984.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.typekit.net/rrg4put.css" />
+<link rel="stylesheet" href="css/main.css" />
+<style>
+/* Inline CSS for skill bars and cards animation */
+.skill-container {
+  margin: 20px 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.skill-name {
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+.progress-bar {
+  width: 100%;
+  background: #2c3e50; /* dark bg */
+  border-radius: 10px;
+  overflow: hidden;
+  height: 18px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.3);
+}
+.progress {
+  height: 100%;
+  width: 0;
+  background: var(--primary-color);
+  border-radius: 10px 0 0 10px;
+  transition: width 2s ease-in-out;
+  opacity: 0;
+}
+
+.progress-text {
+  position: absolute;
+  right: 10px;
+  top: 1px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-light);
+  user-select: none;
+}
+
+/* Experience cards style */
+.job-card {
+  background: var(--background-light);
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+  margin: 20px 0;
+  padding: 20px 30px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.job-card:hover,
+.job-card:focus {
+  transform: translateY(-6px);
+  outline: none;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.job-date {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 6px;
+}
+.job-position {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+.job-company {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+.job-description {
+  color: var(--text-dark);
+  text-align: justify;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  #experience .jobs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  .job-card {
+    width: 48%;
+  }
+}
+</style>
 </head>
 <body>
-      <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-          <a class="navbar-brand" href="index.html">MJ</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-card-item">
-                <a class="nav-link active" href="#about">About me</a>
-              </li>
-              <li class="nav-card-item">
-                <a class="nav-link" href="#bio">Background</a>
-              </li>
-              <li class="nav-card-item">
-                <a class="nav-link" href="#skills">Certifications</a>
-              </li>
-              <li class="nav-card-item">
-                <a class="nav-link" href="#experience">Experience</a>
-              </li>
-              <li class="nav-card-item">
-                <a class="nav-link" href="#contact">Contact Form</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-              <a class="nav-link btn btn-success py-2 px-4 text-nowrap" href="uploads/Curriculum Vitae-Frazao,MaryJoy.pdf" download="Curriculum Vitae-Frazao,MaryJoy.pdf">Download CV</a>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <main>
-      <!-- Intro -->
-      <section id="intro">
-        <div class="container">
-          <div class="text">
-            <h1>Mary Joy<br>
-              Apolinario-Frazão<br></h1>
-            <h3><span class="green">Document Controller</span></h3>
-           <p>Hi! I’m Mary, an experienced administrative professional with a strong background in coordination, documentation management, and process tracking. I handle permitting, inspection records, and compliance documentation with accuracy and care, keeping everything organized and up to date. I enjoy working with different teams to ensure smooth operations and accurate recordkeeping. With a Bachelor’s Degree in Secondary Education major in English, I bring excellent communication and writing skills that help me manage documentation and provide reliable administrative support.
-            </p>
-            <a class="btn btn-outline-success py-2" href="#contact"><img style="width: 20px;"src="img/icon/email.svg" alt="Email icon">
-             <span>Contact Me</span></a>
-            <a class="scroll" href="#about"><img style="width: 20px;" src="img/icon/icon-scroll-down.svg" alt="Scroll down icon">Scroll down</a>
-          </div>
-          <div class="img"><img src="img/2025.2.jpg" alt="Mary Joy Apolinario - Professional photo"></div>
-        </div>
-      </section>
-      <!-- About me -->
-      <section id="about">
-        <div class="about container">
-          <h2 class="section-title">About me</h2>
-            <div class="about-wrapper">
-              <div class="left">
-                <div>
-                 <img src="img/icon/woman-icon.svg" alt="Woman icon"><h2><span class="green">5-Year</span> Remote Job
-                   Experience</h2>
-                </div>
-                <div>
-                  <img src="img/icon/projects-icon.svg" alt="Projects icon"><h2><span class="green">2,100+</span> Clients Satisfied</h2>
-                </div>
-               </div>
-               <div class="right">
-                 <p>As an Operations Coordinator at Stronger Builders LLC (USA), I managed permitting processes, compliance tracking, and inspection scheduling for construction projects while maintaining accurate documentation to support refinancing and project completion. I also contributed to the company’s visibility by managing social media updates, creating marketing materials, and handling real estate listings on the MLS platform. My role required close collaboration with cross-functional teams, ensuring smooth communication, accountability, and efficient task management.
-                  <br>
-                  <br>
-                  Prior to that, I worked as a Dispatcher and Scheduler for KC Power Clean (USA), where I organized technician schedules, monitored job progress, and conducted compliance audits to ensure high service standards. I also managed documentation, invoicing, and pre-lien notice preparation to support financial processes. Earlier in my career, I gained valuable experience in customer support and education through my roles at BAX Music (Netherlands) and RareJob Inc. (Philippines). These positions strengthened my communication, organization, and problem-solving skills as I handled client inquiries, managed documentation, and provided personalized English instruction to students worldwide.</p>
-            </div>
-        </div>
-      </section>
-      <!-- Background -->
-      <section id="bio">
-        <div class="bio container">
-            <div class="img">
-              <img src="img/2025.1.jpg" alt="Mary Joy Apolinario - Casual photo">
-            </div>
-            <div class="text">
-              <h2><span class="green">Personal background:</span></h2>
-              <p>Growing up in the Philippines, I developed a genuine passion for learning and communication, which continues to influence how I approach both work and life. I take pride in being organized, detail oriented, and dependable, always motivated by structure and accuracy. I enjoy creating systems that make information easy to manage, access, and maintain.
-                <br>
-                <br>
-                I am eager to take on new opportunities where I can contribute my skills, support team goals, and grow in a role that values precision and accountability.
-                <br>
-                <br>
-                Outside of work, I enjoy activities that keep me balanced and energized such as singing karaoke with friends, riding my motorcycle, and playing sports like basketball and table tennis. I am also comfortable with technology, proficient in MS Office, and capable of building websites, always striving to deliver efficient and high quality work in everything I do.</p>
-            </div>
-        </div>
-      </section>
-      <br>
-      <br>
-    <!-- Certifications -->
-<section id="skills" class="text-center">
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
-    <h2 class="section-title">Certifications</h2>
-    <ul class="list-unstyled text-light">
-      <div class="skill-wrapper">
-  <a href="https://alison.com/certification/check/0bd7a5355d" target="_blank">
-    <span class="skill-name">Document Control: From Principles to Practice</span>
-  </a>
+    <a class="navbar-brand" href="#intro" aria-label="Home">MJ</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-card-item"><a class="nav-link active" href="#about">About me</a></li>
+        <li class="nav-card-item"><a class="nav-link" href="#bio">Background</a></li>
+        <li class="nav-card-item"><a class="nav-link" href="#skills">Certifications</a></li>
+        <li class="nav-card-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-card-item"><a class="nav-link" href="#contact">Contact Form</a></li>
+      </ul>
+      <a class="btn btn-success py-2 px-4 text-nowrap" href="uploads/Curriculum Vitae-Frazao,MaryJoy.pdf" download="Curriculum Vitae-Frazao,MaryJoy.pdf" aria-label="Download CV">Download CV</a>
+    </div>
+  </div>
+</nav>
+<main>
+<!-- Intro -->
+<section id="intro">
+  <div class="container">
+    <div class="text">
+      <h1>Mary Joy<br>Apolinario-Frazão<br></h1>
+      <h3><span class="green">Document Controller</span></h3>
+      <p>Hi! I’m Mary, an experienced administrative professional with a strong background in coordination, documentation management, and process tracking. I handle permitting, inspection records, and compliance documentation with accuracy and care, keeping everything organized and up to date. I enjoy working with different teams to ensure smooth operations and accurate recordkeeping. With a Bachelor’s Degree in Secondary Education major in English, I bring excellent communication and writing skills that help me manage documentation and provide reliable administrative support.
+      </p>
+      <a class="btn btn-outline-success py-2" href="#contact"><img style="width: 20px;"src="img/icon/email.svg" alt="Email icon" /><span>Contact Me</span></a>
+      <a class="scroll" href="#about"><img style="width: 20px;" src="" alt="" /></a>
+    </div>
+    <div class="img"><img src="img/1234.jpg" alt="Mary Joy Apolinario - Professional photo" /></div>
+  </div>
+</section>
+<!-- About me -->
+<section id="about">
+  <div class="about container">
+    <h2 class="section-title">About me</h2>
+    <div class="about-wrapper">
+      <div class="left">
+        <div>
+          <img src="img/icon/woman-icon.svg" alt="Woman icon" /><h2><span class="green">5-Year</span> Remote Job Experience</h2>
+        </div>
+        <div>
+          <img src="img/icon/projects-icon.svg" alt="Projects icon" /><h2><span class="green">2,100+</span> Clients Satisfied</h2>
+        </div>
+      </div>
+      <div class="right">
+        <p>As an Operations Coordinator at Stronger Builders LLC (USA), I managed permitting processes, compliance tracking, and inspection scheduling for construction projects while maintaining accurate documentation to support refinancing and project completion. I also contributed to the company’s visibility by managing social media updates, creating marketing materials, and handling real estate listings on the MLS platform. My role required close collaboration with cross-functional teams, ensuring smooth communication, accountability, and efficient task management.
+        <br /><br />
+        Prior to that, I worked as a Dispatcher and Scheduler for KC Power Clean (USA), where I organized technician schedules, monitored job progress, and conducted compliance audits to ensure high service standards. I also managed documentation, invoicing, and pre-lien notice preparation to support financial processes. Earlier in my career, I gained valuable experience in customer support and education through my roles at BAX Music (Netherlands) and RareJob Inc. (Philippines). These positions strengthened my communication, organization, and problem-solving skills as I handled client inquiries, managed documentation, and provided personalized English instruction to students worldwide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Background -->
+<section id="bio">
+  <div class="bio container">
+    <div class="img">
+      <img src="img/2025.1.jpg" alt="Mary Joy Apolinario - Casual photo" />
+    </div>
+    <div class="text">
+      <h2><span class="green">Personal background:</span></h2>
+      <p>Growing up in the Philippines, I developed a genuine passion for learning and communication, which continues to influence how I approach both work and life. I take pride in being organized, detail oriented, and dependable, always motivated by structure and accuracy. I enjoy creating systems that make information easy to manage, access, and maintain.
+      <br /><br />
+      I am eager to take on new opportunities where I can contribute my skills, support team goals, and grow in a role that values precision and accountability.
+      <br /><br />
+      Outside of work, I enjoy activities that keep me balanced and energized such as singing karaoke with friends, riding my motorcycle, and playing sports like basketball and table tennis. I am also comfortable with technology, proficient in MS Office, and capable of building websites, always striving to deliver efficient and high quality work in everything I do.</p>
+    </div>
+  </div>
+</section>
+<!-- Certifications -->
+<section id="skills" class="text-center">
+<div class="container">
+<h2 class="section-title">Certifications</h2>
+<ul class="list-unstyled text-light">
+<div class="skill-wrapper">
+<a href="https://alison.com/certification/check/0bd7a5355d" target="_blank">
+<span class="skill-name">Document Control: From Principles to Practice</span>
+</a>
 </div>
 <div class="skill-wrapper">
-  <a href="https://verify.skilljar.com/c/o7sv4jirvpxt" target="_blank">
-    <span class="skill-name">Procore Admin Part 1: Configure Settings</span>
-  </a>
+<a href="https://verify.skilljar.com/c/o7sv4jirvpxt" target="_blank">
+<span class="skill-name">Procore Admin Part 1: Configure Settings</span>
+</a>
 </div>
 <div class="skill-wrapper">
-  <a href="https://verify.skilljar.com/c/8jiadt3bn87o" target="_blank">
-    <span class="skill-name">Procore Admin Part 2: Configure Users & Projects</span>
-  </a>
+<a href="https://verify.skilljar.com/c/8jiadt3bn87o" target="_blank">
+<span class="skill-name">Procore Admin Part 2: Configure Users & Projects</span>
+</a>
 </div>
 <div class="skill-wrapper">
-  <a href="https://verify.skilljar.com/c/zpu98gjhu25f" target="_blank">
-    <span class="skill-name">Procore Admin Part 3: Manage Tools & Data</span>
-  </a>
+<a href="https://verify.skilljar.com/c/zpu98gjhu25f" target="_blank">
+<span class="skill-name">Procore Admin Part 3: Manage Tools & Data</span>
+</a>
 </div>
 <div class="skill-wrapper">
-  <a href="https://www.coursera.org/account/accomplishments/verify/BVQJ73J4A4VP" target="_blank">
-    <span class="skill-name">Business Analysis & Process Management</span>
-  </a>
+<a href="https://www.coursera.org/account/accomplishments/verify/BVQJ73J4A4VP" target="_blank">
+<span class="skill-name">Business Analysis & Process Management</span>
+</a>
 </div>
 <div class="skill-wrapper">
-  <a href="https://www.coursera.org/account/accomplishments/verify/OOB4QZ8KLBGJ" target="_blank">
-    <span class="skill-name">Project Management Tracker (Microsoft Excel)</span>
-  </a>
+<a href="https://www.coursera.org/account/accomplishments/verify/OOB4QZ8KLBGJ" target="_blank">
+<span class="skill-name">Project Management Tracker (Microsoft Excel)</span>
+</a>
 </div>
 <div class="skill-wrapper">
-  <a href="https://www.coursera.org/account/accomplishments/verify/8R8RYDX8TRKI" target="_blank">
-    <span class="skill-name">Hiring and Onboarding Employees with ClickUp</span>
-  </a>
+<a href="https://www.coursera.org/account/accomplishments/verify/8R8RYDX8TRKI" target="_blank">
+<span class="skill-name">Hiring and Onboarding Employees with ClickUp</span>
+</a>
 </div>
 </section>
-      <!-- Experience -->
-      <section id="experience" class="text-center">
-        <div class="container">
-          <h2>My Career Timeline</h2>
-          <div class="jobs">
-              <div class="job-item first">
-                  <p class="date">November 2024 - April 2025</p>
-                  <p class="position">Operation’s Coordinator</p>
-                  <p class="company">Stronger Builders LLC, USA</p>
-                  <p>
-                      - Managed permitting, fee payments, and tracking for new construction.<br>
-                      - Coordinated property inspections, repairs, and documentation for refinancing.<br>
-                      - Organized meeting notes, tracked action items, and ensured follow-ups.
-                  </p>
-              </div>
-              <div class="job-item second">
-                  <p class="date">January 2025 - March 2025</p>
-                  <p class="position">Dispatcher / Scheduler</p>
-                  <p class="company">KC Power Clean, USA</p>
-                  <p>
-                      - Manage scheduling, capacity planning, and job conversions to optimize efficiency and resource utilization.<br>
-                      - Communicate job status updates, perform technician audits, and ensure compliance with reporting and HR processes.<br>
-                      - Handle administrative tasks, including invoicing, data entry, pre-lien documentation, and Google LSA strategy implementation.
-                  </p>
-              </div>
-              <div class="job-item third">
-                  <p class="date">April 2024 - <b>November 2024</b></p>
-                  <p class="position">Customer Representative</p>
-                  <p class="company">BAX Music, United Kingdom</p>
-                  <p>
-                      - Answer emails, inbound, and outbound calls<br>
-                      - Respond to inquiries and resolve issues<br>
-                      - Provide information about products<br>
-                      - Handle transactions efficiently<br>
-                      - Maintain records of customer interactions<br>
-                      - Resolve issues effectively to ensure customer satisfaction
-                  </p>
-              </div>
-              <div class="job-item fourth">
-                  <p class="date">March 2020 - February 2024</p>
-                  <p class="position">Online English Tutor/Recruiter</p>
-                  <p class="company">RareJob, Inc.</p>
-                  <p>
-                      - Flexible schedule<br>
-                      - Encourage learners to stay committed<br>
-                      - Conduct one-on-one English lessons<br>
-                      - Provide constructive feedback to learners
-                  </p>
-              </div>
-              <div class="job-item fifth">
-                  <p class="date">July 2019 - August 2023</p>
-                  <p class="position">Bachelor Degree in Secondary Education – Major in English</p>
-                  <p class="company">Pangasinan State University, Lingayen</p>
-                  <p>
-                      - Developed a strong foundation in English language and literature<br>
-                      - Gained skills in classroom management and educational strategies<br>
-                      - Participated in teaching practice sessions to enhance instructional abilities<br>
-                      - Engaged in curriculum development and lesson planning
-                  </p>
-              </div>
-              <div class="job-item sixth">
-                  <p class="date">June 2017 - April 2019</p>
-                  <p class="position">High School Diploma - Accountancy, Business, and Management</p>
-                  <p class="company">University of Pangasinan - Dagupan City</p>
-                  <p>
-                      - Studied the basic concepts of financial management, business management, corporate operations, human resource, and office management
-                  </p>
-              </div>
-          </div>
-      </section>
-    <!-- Contact -->
+<!-- Experience section with cards -->
+<section id="experience" class="text-center">
+  <div class="container">
+    <h2>My Career Timeline</h2>
+    <div class="jobs">
+      <article class="job-card" tabindex="0">
+        <div class="job-date">November 2024 - April 2025</div>
+        <div class="job-position">Operation’s Coordinator</div>
+        <div class="job-company">Stronger Builders LLC, USA</div>
+        <p class="job-description">
+          - Managed permitting, fee payments, and tracking for new construction.<br />
+          - Coordinated property inspections, repairs, and documentation for refinancing.<br />
+          - Organized meeting notes, tracked action items, and ensured follow-ups.
+        </p>
+      </article>
+      <article class="job-card" tabindex="0">
+        <div class="job-date">January 2025 - March 2025</div>
+        <div class="job-position">Dispatcher / Scheduler</div>
+        <div class="job-company">KC Power Clean, USA</div>
+        <p class="job-description">
+          - Manage scheduling, capacity planning, and job conversions to optimize efficiency and resource utilization.<br />
+          - Communicate job status updates, perform technician audits, and ensure compliance with reporting and HR processes.<br />
+          - Handle administrative tasks, including invoicing, data entry, pre-lien documentation, and Google LSA strategy implementation.
+        </p>
+      </article>
+      <article class="job-card" tabindex="0">
+        <div class="job-date">April 2024 - November 2024</div>
+        <div class="job-position">Customer Representative</div>
+        <div class="job-company">BAX Music, United Kingdom</div>
+        <p class="job-description">
+          - Answer emails, inbound, and outbound calls<br />
+          - Respond to inquiries and resolve issues<br />
+          - Provide information about products<br />
+          - Handle transactions efficiently<br />
+          - Maintain records of customer interactions<br />
+          - Resolve issues effectively to ensure customer satisfaction
+        </p>
+      </article>
+      <article class="job-card" tabindex="0">
+        <div class="job-date">March 2020 - February 2024</div>
+        <div class="job-position">Online English Tutor/Recruiter</div>
+        <div class="job-company">RareJob, Inc.</div>
+        <p class="job-description">
+          - Flexible schedule<br />
+          - Encourage learners to stay committed<br />
+          - Conduct one-on-one English lessons<br />
+          - Provide constructive feedback to learners
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- Contact -->
 <section id="contact" class="py-5">
   <div class="container">
     <h2 class="section-title text-center">Interested in working with me?</h2>
@@ -221,15 +282,15 @@
           <div class="row gy-4">
             <div class="col-md-6">
               <label for="name-field" class="pb-2">Your Name</label>
-              <input type="text" name="name" id="name-field" class="form-control" required>
+              <input type="text" name="name" id="name-field" class="form-control" required />
             </div>
             <div class="col-md-6">
               <label for="email-field" class="pb-2">Your Email</label>
-              <input type="email" class="form-control" name="email" id="email-field" required>
+              <input type="email" class="form-control" name="email" id="email-field" required />
             </div>
             <div class="col-md-12">
               <label for="subject-field" class="pb-2">Subject</label>
-              <input type="text" class="form-control" name="subject" id="subject-field" required>
+              <input type="text" class="form-control" name="subject" id="subject-field" required />
             </div>
             <div class="col-md-12">
               <label for="message-field" class="pb-2">Message</label>
@@ -242,22 +303,26 @@
         </form>
       </div>
       <div class="col-12 col-md-5 col-lg-3 mb-10 d-flex align-items-stretch text-center">
-        <img src="img/photo 3.jpg" alt="Mary Joy Apolinario - Another professional photo" class="img-fluid rounded mx-auto my-auto" style="object-fit: cover; height: 100%;">
+        <img src="img/photo 2.jpg" alt="Mary Joy Apolinario - Another professional photo" class="img-fluid rounded mx-auto my-auto" style="object-fit: cover; height: 85%;" />
       </div>
     </div>
     <div class="contact-info text-center mt-5">
-      <h5>Let's Connect!</h5>
       <div class="social-media mb-3">
         <p>Follow me on social media:</p>
-        <a href="https://www.linkedin.com/in/mary-joy-apolinario-fraz%C3%A3o-b69b2b290/" target="_blank" rel="noopener noreferrer" class="me-2 text-reset">
-          <img src="img/icon/linkedin-icon.svg" alt="LinkedIn" class="img-fluid" style="max-width: 30px;">
+                <a href="mailto:mjapolinario.workacc@gmail.com" target="_blank" rel="noopener noreferrer" class="me-2 text-reset"
+          ><img src="img/icon/gmail.svg" alt="LinkedIn" class="img-fluid" style="max-width: 30px;" />
+        <a href="https://www.linkedin.com/in/mary-joy-apolinario-fraz%C3%A3o-b69b2b290/" target="_blank" rel="noopener noreferrer" class="me-2 text-reset"
+          ><img src="img/icon/linkedin-icon.svg" alt="LinkedIn" class="img-fluid" style="max-width: 30px;" />
+                  <a href="https://www.facebook.com/maryjoyfrazao" target="_blank" rel="noopener noreferrer" class="me-2 text-reset"
+          ><img src="img/icon/facebook-icon.svg" alt="LinkedIn" class="img-fluid" style="max-width: 30px;" />
+                            <a href="https://www.instagram.com/maryjoyfrazao/" target="_blank" rel="noopener noreferrer" class="me-2 text-reset"
+          ><img src="img/icon/instagram-icon.svg" alt="LinkedIn" class="img-fluid" style="max-width: 30px;" />
         </a>
       </div>
       <div class="email mb-3">
-        <p>Contact me via email:</p>
         <p class="white">mjapolinario.workacc@gmail.com</p>
       </div>
-            <div class="phone mb-3">
+      <div class="phone mb-3">
         <p>Mobile:</p>
         <p class="white">+47 463 98 605</p>
       </div>
@@ -268,21 +333,36 @@
     </div>
   </div>
 </section>
-    <!-- Removed one extra closing </div> here that seemed orphaned -->
-      </main>
-      <footer>
-        <div class="container">
-          <div class="copyright">
-            <p class="text-center">© <script>document.write(new Date().getFullYear())</script> Mary Joy Apolinario. All Rights Reserved.</p>
-            <!--
-            Template attribution (if desired, keep it. If it's your own design from scratch, you can remove this specific comment block)
-            This template is licenced under Attribution 3.0 (CC BY 3.0 PL),
-            You are free to: Share and Adapt. You must give appropriate credit, you may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-            -->
-        </div>
-        </div>
-      </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</main>
+
+<footer>
+  <div class="container">
+    <p class="text-center text-light">© <script>document.write(new Date().getFullYear())</script> Mary Joy Apolinario-Frazão. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const skillBars = document.querySelectorAll('.progress');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        skillBars.forEach(bar => {
+          const percent = bar.getAttribute('data-percent');
+          bar.style.width = percent + '%';
+          bar.style.opacity = 1;
+        });
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(document.querySelector('#skills'));
+});
+</script>
 </body>
 </html>
